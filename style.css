@@ -1,0 +1,102 @@
+:root {
+  --bg: #111;
+  --card: #1e1e1e;
+  --text: #ffffff;
+  --button: #2a2a2a;
+  --button-hover: #3a3a3a;
+  --border: #555;
+}
+
+[data-theme="light"] {
+  --bg: #f2f2f2;
+  --card: #ffffff;
+  --text: #111111;
+  --button: #e0e0e0;
+  --button-hover: #d0d0d0;
+  --border: #aaa;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.quiz-container {
+  background: var(--card);
+  padding: 20px;
+  width: 360px;
+  border-radius: 10px;
+}
+
+/* ======================
+   KBC OPTIONS LAYOUT
+   ====================== */
+#options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+#options button {
+  position: relative;
+  padding: 12px 12px 12px 36px; /* space for label */
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  background: var(--button);
+  color: var(--text);
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+#options button:hover:not(:disabled) {
+  transform: scale(1.05);
+  background: var(--button-hover);
+}
+
+#options button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ======================
+   A / B / C / D LABELS
+   ====================== */
+#options button::before {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  opacity: 0.85;
+}
+
+#options button:nth-child(1)::before { content: "A."; }
+#options button:nth-child(2)::before { content: "B."; }
+#options button:nth-child(3)::before { content: "C."; }
+#options button:nth-child(4)::before { content: "D."; }
+
+/* ======================
+   CONTROLS
+   ====================== */
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+}
+
+button {
+  border-radius: 6px;
+}
+
+.theme-toggle {
+  text-align: right;
+  margin-bottom: 10px;
+}
